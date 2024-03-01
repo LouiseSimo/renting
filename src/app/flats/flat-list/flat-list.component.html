@@ -1,0 +1,54 @@
+<div class="container">
+    <h2  *ngIf="flatList && flatList.length > 0"> {{title}}</h2>
+    <button  class="btn btn-secondary d-flex my-3 " [routerLink]="['/flats',0, 'edit']">Add new flats</button>
+    <button  class="btn btn-primary d-flex my-3 " (click)="showFree()">{{isFree? 'Show all' : 'Show only free'}} flats</button>
+
+    
+    <div class="row my-2">
+        <div class="col-md-4 mb-4">
+            <!-- appel de la fonction flatFilter définie  avec GET get pour acceder à la nouvelle valeur de flatFilter 
+            NB: l'appel de la fonction flatFilter ne se fait pas avec les parentheses parce qu'elle est definie get-->
+            <span> Actual filter: "<b>{{flatFilter}}"</b></span>
+        </div>
+        <div class=" col-md-8 mb-4">
+
+            <!-- appel de la fonction flatFilter définie  avec SET set pour donner une nouvelle
+            valeur à la variable private _flatFilter qui sera recuperée plus tard
+            NB: l'appel de la fonction flatFilter ne se fait pas avec les parentheses parce qu'elle est definie set-->
+  
+            <input type="text" class="form-group" [(ngModel)]="flatFilter" placeholder="Search a flat">
+        </div>
+    </div>  
+    
+  
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+        <div class="col " *ngFor="let flat of filteredFlats">
+            <div class="card " appBorderCard= >
+                <img [src]="flat.imageUrl" 
+                     class="card-img-top" 
+                     [title]="flat.flatName | titlecase"
+                     alt="flat.flatTitle">
+
+                <div class="card-body">
+                    <h5 class="card-title" >{{flat.flatName}}</h5>
+                    <p class="card-text">
+                        {{flat.description}}
+                    </p>
+                    <p class="card-text">
+                        {{flat.price |currency: 'EUR' : 'symbol' :'1.2-2' : 'fr' |replaceComma }}
+                    </p>
+
+                    <div class="col">
+                        <button type="button" class="btn btn-primary me-2 " [routerLink]="['/flats',flat.id,'edit']"> Edit</button>
+                        <button type="button" class="btn btn-info me-2 " [routerLink]="['/flats',flat.id]"> See details</button>
+                        <span class="badge bg-secondary me-2 " *ngIf="isFree"> Free</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+    

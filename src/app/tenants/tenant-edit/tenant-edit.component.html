@@ -1,0 +1,336 @@
+<button type="button" class="btn btn-outline-danger p-1 col-md-2 mb-1" routerLink='/tenants'> Return to the list </button>
+<div class="card">
+    <div class="card-header text-white bg-info ">Register a new tenant</div>
+    <div class="card-body">
+        <form novalidate action="" (ngSubmit)="saveTenant()" [formGroup]="registerForm">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="firstNameId">First Name</label>
+                    <input id="firstNameId"
+                           type="text" class="form-control" 
+                           placeholder="First name" 
+                           formControlName="firstName" 
+                           [ngClass]="{'is-invalid':registerForm.get('firstName')?.touched && !registerForm.get('firstName')?.valid}">
+                    <div class="invalid-feedback">
+                        <span *ngIf="registerForm.get('firstName')?.errors?.['required'] "> Enter the tenant's first name</span>
+                        <span *ngIf="registerForm.get('firstName')?.errors?.['minlength'] "> 04 Characters minimum</span>
+                    </div>
+                </div> 
+
+                <div class="col-md-6">
+                    <label for="lastNameId"> Last Name</label>
+                    <input id="lastNameId"
+                           type="text" class="form-control" 
+                           placeholder=" Last Name" 
+                           formControlName="lastName" 
+                           [ngClass]="{'is-invalid':registerForm.get('lastName')?.touched && !registerForm.get('lastName')?.valid}">
+                    <div class="invalid-feedback">
+                        <span *ngIf="registerForm.get('lastName')?.errors?.['required'] "> Enter the tenant's last name</span>
+                        <span *ngIf="registerForm.get('lastName')?.errors?.['maxlength'] "> 14 Characters maximum</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="numberId"> Phone number</label>
+                    <input id="numberId"
+                           type="text" class="form-control" placeholder=" Phone number" 
+                           formControlName="number" 
+                           [ngClass]="{'is-invalid':registerForm.get('number')?.touched && !registerForm.get('number')?.valid}">
+                     <div class="invalid-feedback">
+                        <span *ngIf="registerForm.get('number')?.errors?.['required'] "> Enter the tenant's pgone number</span>
+                        <span *ngIf="registerForm.get('number')?.errors?.['maxlength'] "> 9 Characters maximum</span>
+                     </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="cniNumberId">CNI number(09 characters as in Cameroon) </label>
+                    <input id="cniNumberId"
+                           type="text" class="form-control" placeholder="CNI number" 
+                           formControlName="cniNumber" 
+                           [ngClass]="{'is-invalid':registerForm.get('cniNumber')?.touched && !registerForm.get('cniNumber')?.valid}">
+                     <div class="invalid-feedback">
+                        <span *ngIf="registerForm.get('cniNumber')?.errors?.['required']  "> Enter the tenant's Email</span>
+                        <span *ngIf="registerForm.get('cniNumber')?.errors?.['email'] "> Email not valide</span> 
+                     </div>
+                </div>  
+            </div>
+
+            <div class="row mb-3 ">
+                <div class="col-md-6">
+                    <label  for="descriptionId"> Select the Room Id </label>
+                    <select  id="descriptionId" class="form-control" formControlName="description">
+                        <option value="">Select the rented flat</option>
+                        <option value="F1">Flat 1</option>
+                        <option value="F2">Flat 2</option>
+                        <option value="F3">Flat 3</option>
+                    </select>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check mt-3 pt-3">
+                        <label for="moreInfoId" class="form-check-label">
+                            <input type="checkbox" class="form-check-input" 
+                                   formControlName="moreInfoId" >
+                            Add further information about the tenant
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- OPTIONNAL SECTION -->
+
+
+            <div  *ngIf="registerForm.get('moreInfoId')?.value" >
+                <div class="col-md-12">
+                    <label for="">Email</label>
+                    <input id="email" 
+                           type="email" class="form-control" 
+                           placeholder="Email" 
+                           formControlName="email"  
+                           [ngClass]="{'is-invalid':registerForm.get('email')?.touched && !registerForm.get('email')?.valid}">
+                     <div class="invalid-feedback">
+                        <span *ngIf="registerForm.get('email')?.errors?.['email'] "> Email not valide</span> 
+                     </div>
+                </div> 
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for=""> contrat</label>
+                        <input id="image" 
+                               type="image" class="form-control"
+                               formControlName="image">
+                    </div>
+                    <div class="col-md-6">
+                        <label for=""> contrat</label>
+                        <input id="contrat" 
+                               type="image" class="form-control"
+                               formControlName="contrat">
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for=""> Description</label>
+                        <textarea id="description"
+                                  class="form-control" 
+                                  formControlName="description" 
+                                  cols="20" rows="5"
+                                  [ngClass]="{'is-invalid':registerForm.get('description')?.touched && !registerForm.get('description')?.valid}">
+                        </textarea>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="col text-left">
+                <button class="btn btn-outline-info me-2" type="button" (click)="fillFormData()"> Fill the placeholders automatically</button>
+                <button class="btn btn-info " type="submit" [disabled]="!registerForm.valid"> Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<tr></tr>
+
+<p> Dirty:{{registerForm.dirty}}</p>
+<p> moreInfo:{{registerForm.get('moreInfoId')?.value }}</p>
+
+<p> Pristine:{{registerForm.pristine}}</p>
+<p> Valid:{{registerForm.valid}}</p>
+<p> InValid:{{registerForm.invalid}}</p>
+<p> nameTouched:{{registerForm.get('firstName')?.touched}}</p>
+<pre> Value: {{registerForm.value | json}}</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Methode template 
+ <div class="card">
+    <div class="card-header text-white bg-info ">Register a new tenant</div>
+    <div class="card-body">
+        <form novalidate action="" (ngSubmit)="saveData(registerForm)" #registerForm="ngForm">
+            <div class="form-row mb-5">
+                <div class="col-md-6">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control" placeholder="First name" 
+                           [(ngModel)]=" tenant.firstName" name="firstName" required minlength="4"
+                           #firstNameVar="ngModel"
+                           #firstNameVar contient la valeur courante de cet imput
+                           [ngClass]="{'is-invalid':firstNameVar.touched && !firstNameVar.valid}">
+                    <div class="invalid-feedback">
+                        <span *ngIf="firstNameVar.errors?.['required'] "> Enter the tenant's first name</span>
+                        <span *ngIf="firstNameVar.errors?.['minlength'] "> 04 Characters minimum</span>
+                        
+                    </div>
+                </div> 
+                <div class="col-md-6">
+                    <label for=""> Last Name</label>
+                    <input type="text" class="form-control" placeholder=" Last Name" 
+                           [(ngModel)]=" tenant.lastName" name="lastName" required maxlength="14"
+                           #lastNameVar="ngModel"
+                           [ngClass]="{'is-invalid':lastNameVar.touched && !lastNameVar.valid}">
+                     <div class="invalid-feedback">
+                        <span *ngIf="firstNameVar.errors?.['required'] "> Enter the tenant's last name</span>
+                        <span *ngIf="firstNameVar.errors?.['maxlength'] "> 14 Characters maximum</span>
+                     </div>
+                </div>
+            </div>
+
+            <div class="form-row mb-5">
+                <div class="col-md-6">
+                    <label for=""> Phone number</label>
+                    <input type="text" class="form-control" placeholder=" Phone number" 
+                           [(ngModel)]=" tenant.number" name="number" required maxlength="9"
+                           #numberVar="ngModel"
+
+                           [ngClass]="{'is-invalid':numberVar.touched && !numberVar.valid}">
+                     <div class="invalid-feedback">
+                        <span *ngIf="numberVar.errors?.['required'] "> Enter the tenant's pgone number</span>
+                        <span *ngIf="numberVar.errors?.['maxlength'] "> 9 Characters maximum</span>
+                     </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">CNI number </label>
+                    <input type="email" class="form-control" placeholder="CNI number" 
+                           [(ngModel)]=" tenant.cniNumber" name="email" required email
+                           #cniNumberVar="ngModel"
+                           [ngClass]="{'is-invalid':cniNumberVar.touched && !cniNumberVar.valid}">
+                     <div class="invalid-feedback">
+                        <span *ngIf="cniNumberVar.errors?.['required']  "> Enter the tenant's Email</span>
+                        <span *ngIf="cniNumberVar.errors?.['email'] "> Email not valide</span> 
+                     </div>
+                </div>  
+            </div>
+
+            <div class="form-row mb-3 ">
+                <div class="col-md-6">
+                    <label > Select the Room Id </label>
+                    <select name="" id="" class="form-control">
+                        <option value="">Select the rented flat</option>
+                        <option value="F1">Flat 1</option>
+                        <option value="F2">Flat 2</option>
+                        <option value="F3">Flat 3</option>
+                    </select>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check mt-3 pt-3">
+                        <label for="moreInfoId" class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="moreInfo" [(ngModel)]="tenant.moreInfoId">
+                            Add further information about the tenant
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+
+             OPTIONNAL SECTION 
+
+
+            <div *ngIf="tenant.moreInfoId">
+                <div class="col-md-12">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" placeholder="Email" 
+                           [(ngModel)]=" tenant.email" name="email"  email
+                           #emailVar="ngModel"
+                           [ngClass]="{'is-invalid':emailVar.touched && !emailVar.valid}">
+                     <div class="invalid-feedback">
+                        <span *ngIf="emailVar.errors?.['email'] "> Email not valide</span> 
+                     </div>
+                </div> 
+
+                <div class="form-row mb-3">
+                    <div class="col-md-12">
+                        <label for=""> contrat</label>
+                        <input type="image" name="" id="">
+                    </div>
+                </div>
+
+                <div class="form-row mb-3">
+                    <div class="col-md-12">
+                        <label for=""> tenant's picture</label>
+                        <input type="image" name="" id="">
+                    </div>
+                </div>
+                
+                <div class="form-row mb-3">
+                    <div class="col-md-12">
+                        <label for=""> Description</label>
+                        <textarea class="form-control" name="" id="" cols="20" rows="5"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="text-left">
+                <button class="btn btn-info" type="submit" [disabled]="!registerForm.valid"> Save</button>
+            </div>
+
+        </form>
+    </div>
+</div> -->

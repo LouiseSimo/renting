@@ -1,0 +1,34 @@
+<section class="header shadow">
+  <h1 class="text-center ">{{pageTitle}}</h1>
+</section>
+
+
+<div class="todos-form offset-md-2"  style="max-width:50rem;">
+  
+  <form class="row" (submit)="addTodo()" >
+    <label class="mb-2">What would you like to do today?</label>
+    <div class="col row-cols-md-2 mb-2">    
+      <input type="text"
+              class="col-md-8 me-2" 
+              name="inputTodo"  
+              placeholder="enter a new task"
+              [(ngModel)]="inputTodo">
+            <!-- <i class="material-icons">add</i> -->
+
+      <input type="submit" value="Add to the list" class="btn btn-primary col-md-2">
+    </div>
+
+  </form>
+</div>
+
+<div class="todos shadow">
+  <div class="todo row row-cols-md-4  mb-2" *ngFor="let todo of todos; let i=index">
+    <div class="col">{{i+1}}</div>
+    <div class="col"*ngIf="todo.completed"><s>{{todo.content}}</s></div>
+    <div class="col"*ngIf="!todo.completed">{{todo.content}}</div>
+    <div class="col"><button class="button " (click)="toggleTodo(i)">Done</button></div>
+    <div class="col" (click)="deleteTodo(i)"><button class="delete " >Remove</button></div>
+
+  </div>
+
+</div>

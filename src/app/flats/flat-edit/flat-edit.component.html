@@ -1,0 +1,59 @@
+<!-- le ng-container permet d'ecrire une condition sans avoir besoin d'ajouter un element supplementaire dans notre  application. -->
+<ng-container *ngIf="errorMessage">
+    <div class = 'alert alert-danger d-flex align-items-center'>
+        {{errorMessage}}
+    </div>
+
+</ng-container>
+
+<div class="card">
+    <div class="card-header text-white bg-info"> 
+        {{pageTitle}}
+    </div>
+    
+    <div class="card-body">
+        <form novalidate (ngSubmit)="saveFlat()" [formGroup]="flatForm">
+<!-- flatForm garde en temps reel les valeurs des champ du formulaire qui  appartiennent aq son groupe et les transmet au typeScript grace au data bindiand qui a ete fait sur lui -->
+            <div class="form-group row mb-2">
+                <label for="flatNameId" class="col-md-2 col-form-label"> Flat Name</label>
+                <div class="col-md-8">
+                    <input id="flatNameId"
+                           type="text"
+                           class="form-control"
+                           formControlName="flatName"
+                           placeholder="Name(compulsory)">
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label for="priceId" class="col-md-2 col-form-label"> Price</label>
+                <div class="col-md-8">
+                    <input id="priceId"
+                           type="text"
+                           class="form-control"
+                           formControlName="price" variable qui represente cet imput dans le modele du formulaire
+                           placeholder="Price(compulsory)">
+                </div>
+            </div>
+            <div class="group row mb-2">
+                <label for="descriptionId" class="col-md-2 col-form-label"> Description</label>
+                <div class="col-md-8">
+                    <textarea id="descriptionId"
+                              class="form-control"
+                              formControlName="description" ></textarea>
+                </div>
+            </div>
+
+            <div class="group row mb-2">
+                <div class="offset-md-2 col-md-4">
+                    <button class="btn btn-info me-2"  type="submit"> Save</button>
+                    <button class="btn btn-outline-secondary me-2 "  type="button" routerLink='/flats'> Cancel</button>
+                    <button class="btn btn-outline-danger me-2 "  type="button" (click)="deleteFlat()" [disabled]="flat.id==0"> Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <pre>
+        {{flatForm.value | json}}
+    </pre>
+</div>
