@@ -1,5 +1,5 @@
 import { CanDeactivateFn,CanDeactivate } from '@angular/router';
-import { FlatEditComponent } from '../../flat-edit/flat-edit.component';
+import { FlatEditComponent } from './flat-edit.component';
 
 
 export const FlatEditGuard: CanDeactivateFn<FlatEditComponent> = (component:FlatEditComponent) => {

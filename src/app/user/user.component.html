@@ -1,0 +1,35 @@
+
+<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+	<div class="container-fluid">
+	  <a class="navbar-brand" href="#"> User Navbar</a>
+	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarText">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		  <li class="nav-item">
+			<a class="nav-link active" routerLink='info'>My information</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" routerLink='flats'>contract</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" routerLink='tenants'>payments history</a>
+		  </li>
+		</ul>
+		<span class="navbar-text">
+		  Welcome @ {{userName}}
+		</span>
+	  </div>
+	</div>
+  </nav>
+
+  <div>
+	<router-outlet></router-outlet>
+  </div>
+
+
+<nav class="navbar fixed-bottom navbar-light bg-light">
+	<a class="navbar-brand" href="#"> User Fixed bottom</a>
+  </nav>
+

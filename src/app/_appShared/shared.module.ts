@@ -5,12 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReplaceComma } from './pipes/replace-comma.pipe';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from '../admin/admin.component';
+import { PersonalInformationComponent } from './personal-information/personal-information.component';
 
 
 
 @NgModule({
   declarations: [
     ReplaceComma,
+    PersonalInformationComponent,
     
    
   ],

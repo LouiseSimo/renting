@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FlatListService } from '../flatShared/services/flat-list.service';
-import { IFlat } from '../flatShared/models/flat';
+import { FlatListService } from '../services/flat-list.service';
+import { IFlat } from '../flat';
 
 @Component({
   selector: 'app-flat-edit',
@@ -18,7 +18,7 @@ export class FlatEditComponent {
   public errorMessage!:string | null;
 
   constructor(private fb: FormBuilder,
-              private route: ActivatedRoute,
+              private route: ActivatedRoute,// le service qui va nous aider à capturer la route et prendre la valeur dont on a besoin
               private router:Router,
               private flatService:FlatListService){}
   // Affichage initial de notre page dans le cas où on clique sur "add a new flat" 

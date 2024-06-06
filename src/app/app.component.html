@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary " >
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary " >
   <div class="container-fluid">
     <a class="navbar-brand" routerLink=''>{{title}}</a>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -27,13 +27,15 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
+<!--  Contrairement à tous les autres pipes que vous avez rencontrés jusqu'ici, le pipe  async  ne formate pas des données : il souscrit à un Observable et insère les émissions dans le DOM. -->
+<!-- <h1> this is like a compter  that can be useto coumpt the time an user passed on the website{{ interval$ | async }}</h1>
+<h1> this one hum{{ interval2$ | async }}</h1> -->
 
+<!-- <app-todos></app-todos> -->
 <!-- C'est lui qui affiche le contenu de notre application en 
   fonction du RouterLink sur lequel on a cliqué à un moment donné. -->
 
 <div class="container">
   <router-outlet></router-outlet> 
 </div>
-<p class="card-text">
-  <router-outlet></router-outlet>

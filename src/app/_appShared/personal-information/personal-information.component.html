@@ -1,0 +1,64 @@
+<p>personal-information works!</p>
+<p>personal-information works!</p>
+<p>personal-information works!</p>
+<p>personal-information works!</p>
+
+
+<div class="card border mb-3 offset-md-2"  style="max-width:50rem;"  position ="center" *ngIf= "info" >
+    <button type="button" class="btn btn-outline-danger p-1 col-md-4 mb-1" routerLink='/flats'> Return to the list </button>
+
+    <div class="card-header" class="btn btn-info p-1">Occupier of Flat {{info.flatName | uppercase}}  since {{info.addedDate}}</div>
+    <div class="card-body offset-md-2  ">
+
+        <div class="hstack gap-3">
+            <div class="bg-light border"></div>
+            <div class="bg-light border ms-auto">Second item</div>
+            <div class="vr"></div>
+            <div class="bg-light border">Third item</div>
+        </div>
+
+        <div class="  col-md-10 ">
+            <img [src]='info.imageUrl' class="card-img-top " alt="Image of the flat" style="max-height:30rem;">
+        </div><br>
+        <div class="row">
+            <div class="col-md-3"> Name: </div>
+            <h5 class="card-title col-md-9">{{info.name }}</h5>
+        </div>
+        <div class="row">
+            <div class="col-md-3"> Phone number: </div>
+            <h5 class="card-title col-md-9">{{info.telephone }}</h5>
+        </div>
+        <div class="row">
+            <div class="col-md-3"> Email address: </div>
+            <h5 class="card-title col-md-9">{{info.email }}</h5>
+        </div>
+        <div class="row">
+            <div class="col-md-3">CNI number:</div>
+            <div class="card-text col-md-9"> {{info.cni |currency: 'EUR' : 'symbol' :'1.2-2' : 'fr' |replaceComma }}</div >
+        </div>
+        <div class="row">
+            <div class="col-md-3">Description: </div>
+            <div  class="card-text col-md-9">{{info.description}}</div >
+        </div>
+        <br>
+        <p class="card-text offset-md-2"><small class="text-body-secondary">Last updated 3 mins ago/ Louise you must change this</small></p>
+
+
+
+        <div class="card-footer">
+
+            <button type="button" class="btn btn-outline-info p-1 col-md-4" routerLink='/flats'> Return to the list </button>
+            <button type="button" class="btn btn-outline-dark p-1 col-md-6" (click)="backToList()"> Another way to return to the same list</button>
+
+        </div>
+
+
+    </div>
+      
+</div>
+
+<p>personal-information works!</p>
+<p>personal-information works!</p>
+<p>personal-information works!</p>
+<p>personal-information works!</p>
+<p>personal-information works!</p>

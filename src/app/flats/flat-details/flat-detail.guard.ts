@@ -3,16 +3,16 @@ import { ActivatedRouteSnapshot,CanActivateFn, CanActivate, Router, RouterStateS
 
 export const FlatDetailGuard: CanActivateFn = (route: ActivatedRouteSnapshot, 
                                                state: RouterStateSnapshot):boolean => {
-  console.log('route activable: ',route);
-   const router =inject(Router); // inject est untilisee pour l'injection des dependances, apparement ce n'est pas permis d'utiliser le constructuer
+  // console.log('route activable: ',route);
+  //  const router =inject(Router); // inject est untilisee pour l'injection des dependances, apparement ce n'est pas permis d'utiliser le constructuer
    
-    const id = +route.url[1].path;
+  //   const id = +route.url[1].path;
   
-    if (isNaN(id) || id <= 0 || id >=5){
-      alert('Flat inconnu, veillez retourner en zone securisée parce que ici vous etes en danger');
-      router.navigate(['/flats']);
-      return false;
-    }
+  //   if (isNaN(id) || id <= 0 || id >=5){
+  //     alert('Flat inconnu, veillez retourner en zone securisée parce que ici vous etes en danger');
+  //     router.navigate(['/flats']);
+  //     return false;
+  //   }
 
   return true;
 };

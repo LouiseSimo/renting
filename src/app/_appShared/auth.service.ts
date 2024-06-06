@@ -15,13 +15,13 @@ export class AuthService {
   login(name:string,password:string):Observable<boolean>{// login retourne un observable parce qie dans la vrai vie elle ira verifier les données dans un serveur
     //const isLoggedIn=(name == this.name&& password==this.password) // autre methode 
     if(name == 'Louise' && password=='louise'){
-     this.isLoggedIn=(name == 'Louise' && password=='louise');//isLoggedIn ici est differente de isLoggedIn declaré hors de la fonction. 
+     this.isLoggedIn=true;//isLoggedIn ici est differente de isLoggedIn declaré hors de la fonction. 
     //son role est de garder le resultat de la comparaison faite sur les identifiants entrés par l'utilisateur  
-    this.loggedName='Admin principal';
+    this.loggedName='Admin principal @' + name;
     }else if(name == 'Marie' && password=='marie'){
-      this.isLoggedIn=(name == 'Marie' && password=='marie');//isLoggedIn ici est differente de isLoggedIn declaré hors de la fonction. 
+      this.isLoggedIn=true;//isLoggedIn ici est differente de isLoggedIn declaré hors de la fonction. 
      //son role est de garder le resultat de la comparaison faite sur les identifiants entrés par l'utilisateur  
-     this.loggedName='User principal';
+     this.loggedName='User principal @' +name;
      }
     
 

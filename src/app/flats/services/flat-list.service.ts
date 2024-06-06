@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IFlat } from "../models/flat";
+import { IFlat } from "../flat";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable, of, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
@@ -21,7 +21,8 @@ export class FlatListService {
     // La pluspart des fonctions de ce service prennent leur données dans un serveur et pour celà utilisent
     // les fonctions du service httpClient(get, put, post), raison pour laquelle elles retournent des observables.
 
-    private readonly FLAT_API_URL ='api/flats';
+    private readonly FLAT_API_URL ='api/flats.json'; // route vers le fichier json
+    //private readonly FLAT_API_URL ='api/flats';
 
     constructor(private http : HttpClient){}
     // getFlats() utilise la fonction get du service httpClient , et cette fontion retourne une donnée de type 'Observable'  
@@ -91,11 +92,12 @@ export class FlatListService {
     private getDefaultFlat():IFlat{
       return{
         id: 0,
-      flatName: "",
-      description: "",
-      price: null,
-      imageUrl:"",
-      isFree:false
+        flatName: "",
+        description: "",
+        price: null,
+        imageUrl:"",
+        isFree:false,
+        createdDate: new Date(),
       }
     }
 

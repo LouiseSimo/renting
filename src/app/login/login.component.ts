@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../appShared/auth.service';
+import { AuthService } from '../_appShared/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   message:string='you are logged out(Louise/louise)';
-  name!:string;
+  userName!:string;
   password!:string;
   auth!:AuthService;
   public title ="RENTING MANAGEMENT APP"
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService:AuthService,private router: Router){}
 
   ngOnInit(): void {
-    this.name=''
+    this.userName=''
     this.password=''
     this.auth=this.authService
   }
@@ -32,15 +32,19 @@ export class LoginComponent implements OnInit {
   }
   login(){// cette methode se charge d'appeller le service pour lui demander si les informations entrees par le user sont correctes.
     this.message='Trying to connect...';// message qui s'affiche à l'utilisateur pendant qu;on interroge le serveur à l'aide du service qu'on appelle
-    this.auth.login(this.name, this.password).subscribe((isLoggedIn:boolean)=>{
+    this.auth.login(this.userName, this.password).subscribe((isLoggedIn:boolean)=>{
       this.setMessage(); // le message affiche changera en fonction de la valeur de isLoggedIn qu'on aura recu 
       console.log(this.message)
-      if(isLoggedIn){
+      if(isLoggedIn && this.userName=='Louise'){
         this.router.navigate(['/admin'])
+      }else if(isLoggedIn && this.userName=='Marie'){
+        this.router.navigate(['/user'])
       }else{
         this.password='';
         this.router.navigate(['/login'])
       }
+      
+      
     })
 
   }

@@ -1,22 +1,27 @@
+<div>
 
 <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
 	<div class="container-fluid">
-	  <a class="navbar-brand" href="#">Navbar w/ text</a>
+			<!-- ceci est la route avec l'espace ' '（ celle qui s'ouvre par defaut ) -->
+	  <a class="navbar-brand" routerLink=' '> Admin Navbar</a>
 	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarText">
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		  <li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="#">Home</a>
+			<!-- la directive  routerLink permet créer ultra facilement des liens vers des routes crées de vos applications -->
+			 <!-- la directive routerLinkActive applique la classe css qu'on lui passe en parametree sur la route qui est active -->
+		  <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+		
+			<!-- <a class="nav-link active" routerLink=' ' >Home</a> -->
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" routerLink='/flats'>Flats</a>
+		  <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<a class="nav-link" routerLink='flats' >Flats</a>
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" routerLink='/tenants'>Tenants</a>
+		  <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<a class="nav-link" routerLink='tenants'>Tenants</a>
 		  </li>
-		  <li class="nav-item">
+		  <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
 			<a class="nav-link" href="#">Rents</a>
 		  </li>
 		</ul>
@@ -26,15 +31,18 @@
 	  </div>
 	</div>
   </nav>
+</div>
 
-
+  <div>
 	<router-outlet></router-outlet>
+  </div>
 
 
-
-<nav class="navbar fixed-bottom navbar-light bg-light">
-	<a class="navbar-brand" href="#">Fixed bottom</a>
-  </nav>
+<div>
+	<nav class="navbar fixed-bottom navbar-light bg-light">
+		<a class="navbar-brand" href="#"> Admin Fixed bottom</a>
+	</nav>
+</div>
 
 
 <!-- <app-flat-list class="mt-5"></app-flat-list> -->

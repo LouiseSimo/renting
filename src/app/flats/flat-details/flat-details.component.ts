@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FlatListService } from '../flatShared/services/flat-list.service';
-import { IFlat } from '../flatShared/models/flat';
+import { FlatListService } from '../services/flat-list.service';
+import { IFlat } from '../flat';
 
 @Component({
   selector: 'app-flat-details',
@@ -12,7 +12,7 @@ export class FlatDetailsComponent {
 
   public flat :IFlat | undefined;
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute, // le service qui va nous aider à capturer la route et prendre la valeur dont on a besoin
               private flatListService: FlatListService,
               private router: Router){}
 

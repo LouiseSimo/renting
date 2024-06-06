@@ -3,20 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { FlatModule } from './flats/flat.module';
-import { FlatRoutingModule } from './flats/flat-routing.module';
 import { AppRoutingModule } from './app-routing.module';
-
-import { TenantRoutingModule } from './tenants/tenant-routing.module';
-import { TenantModule } from './tenants/tenant.module';
-import { AdminComponent } from './admin/admin.component';
-import { BorderCardDirective } from './flats/flatShared/directives/border-card.directive';
-import { FormsModule } from '@angular/forms';
 import { TodosComponent } from './todos/todos.component';
+import { BorderCardDirective } from './_appShared/directives/border-card.directive';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { UserComponent } from './user/user.component';
+import { AdminModule } from './admin/admin.module';
 registerLocaleData(localeFr,'fr' );
+
 
 
 
@@ -24,10 +23,11 @@ registerLocaleData(localeFr,'fr' );
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-   
-    BorderCardDirective,
-    TodosComponent,
+    LoginComponent,   
+    BorderCardDirective, //CETTE DIRECTIVE NE FONCTIONNE PAS ENCORE 
+    //TodosComponent, 
+    UserComponent,
+    
     
     
   ],
@@ -35,13 +35,9 @@ registerLocaleData(localeFr,'fr' );
     BrowserModule,
     FormsModule,
     HttpClientModule,
-
-    //FlatRoutingModule,
-    //TenantRoutingModule,
     AppRoutingModule,
     
-    //FlatModule,
-    //TenantModule
+    
 
   ],
   providers: [],

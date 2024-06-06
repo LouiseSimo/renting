@@ -10,4 +10,6 @@ export interface IFlat{
     imageUrl:string;
 
     isFree: boolean;
+
+    createdDate: Date;
 }

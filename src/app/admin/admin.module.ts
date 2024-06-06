@@ -1,34 +1,39 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { FlatModule } from '../flats/flat.module';
 import { AdminComponent } from './admin.component';
-import { SharedModule } from '../appShared/shared.module';
+import { SharedModule } from '../_appShared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
-import { RouterModule } from '@angular/router';
 import { FlatRoutingModule } from '../flats/flat-routing.module';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FlatData } from '../flats/api/flat.data';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { TodosComponent } from '../todos/todos.component';
+
+
 
 
 
 @NgModule({
   declarations: [
-    AdminComponent
+    AdminComponent,
+    AdminHomeComponent,
+    TodosComponent
   ],
   imports: [
-    CommonModule,
+    //CommonModule,
     SharedModule,
-    //FlatModule, 
+    FlatModule, 
     AdminRoutingModule,
-    RouterModule
-    
+    InMemoryWebApiModule.forFeature(FlatData),
   ],
   exports: [
-    //SharedModule,
-     //FlatModule, 
+    // SharedModule,
+    //FlatModule, 
     // AdminRoutingModule,
-     //FlatRoutingModule
-   
-     
-   ]
-  
+    // FlatRoutingModule
+  ]
+
 })
 export class AdminModule { }

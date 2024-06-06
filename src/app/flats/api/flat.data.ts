@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { IFlat } from '../models/flat';
+import { IFlat } from '../flat';
 
 @Injectable({
     providedIn: 'root',
   })
 
-export class FlatDataC implements InMemoryDbService{
+export class FlatData implements InMemoryDbService{
     createDb():Record<string,IFlat[]> {
-        const flat:IFlat[]=[
+        const flats:IFlat[]=[
             {
                 id: 1,
-                "flatName": "F1 fake",
-                "description": "this is the F1 flat description",
-                "price": 900.00,
-                "imageUrl":"../assets/img/hotel-room.jpg",
-                "isFree":true
+                flatName: "F1 from api",
+                description: "this is the F1 flat description",
+                price: 900.00,
+                imageUrl:"../assets/img/indoors.jpg",
+                isFree:true,
+                createdDate: new Date()
+                
             },
             {
                 id: 2,
@@ -23,7 +25,8 @@ export class FlatDataC implements InMemoryDbService{
                 description: "this is the F2 flat description",
                 price: 800.00,
                 imageUrl:"../assets/img/hotel-room.jpg",
-                isFree:true
+                isFree:true,
+                createdDate: new Date()
             },
             {
                 id: 3,
@@ -31,7 +34,8 @@ export class FlatDataC implements InMemoryDbService{
                 description: "this is the F3 flat description",
                 price: 100000,
                 imageUrl:"../assets/img/the-interior.jpg",
-                isFree:true
+                isFree:true,
+                createdDate: new Date()
             },
             {
                 id: 4,
@@ -39,12 +43,18 @@ export class FlatDataC implements InMemoryDbService{
                 description: "this is the F4 flat description",
                 price: 60000,
                 imageUrl:"../assets/img/window.jpg",
-                isFree:true
+                isFree:true,
+                createdDate: new Date()
             }
         ];
 
-        return{flat};
+        return{flats};
 
 
+    }
+
+    genId(flats:IFlat[]):number{
+        return flats.length > 0 ? Math.max(...flats.map(flat => flat.id!))+1:1;
+        // x?then y :else then z   c'est la methode utilisée
     }
 }

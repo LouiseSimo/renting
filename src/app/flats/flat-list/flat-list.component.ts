@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IFlat } from '../flatShared/models/flat';
-import { FlatListService } from '../flatShared/services/flat-list.service';
-import { BorderCardDirective } from '../flatShared/directives/border-card.directive';
+import { IFlat } from '../flat';
+import { FlatListService } from '../services/flat-list.service';
+import { BorderCardDirective } from '../../_appShared/directives/border-card.directive';
 
 
 @Component({

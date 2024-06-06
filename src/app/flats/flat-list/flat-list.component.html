@@ -1,3 +1,4 @@
+
 <div class="container">
     <h2  *ngIf="flatList && flatList.length > 0"> {{title}}</h2>
     <button  class="btn btn-secondary d-flex my-3 " [routerLink]="['/flats',0, 'edit']">Add new flats</button>
@@ -23,7 +24,11 @@
   
     <div class="row row-cols-1 row-cols-md-3 g-3">
         <div class="col " *ngFor="let flat of filteredFlats">
-            <div class="card " appBorderCard= >
+            <div class="card " 
+            [ngClass]="{ snapped: flat.isFree === true }"
+            appBorderCard= 
+            > 
+                <p>Mis en ligne le {{ flat.createdDate | date }}</p>
                 <img [src]="flat.imageUrl" 
                      class="card-img-top" 
                      [title]="flat.flatName | titlecase"
@@ -39,8 +44,9 @@
                     </p>
 
                     <div class="col">
-                        <button type="button" class="btn btn-primary me-2 " [routerLink]="['/flats',flat.id,'edit']"> Edit</button>
-                        <button type="button" class="btn btn-info me-2 " [routerLink]="['/flats',flat.id]"> See details</button>
+                        <!-- <button type="button" class="btn btn-primary me-2 " [routerLink]="['/admin/flats/', flat.id, '/edit']"> Edit</button> -->
+                        <button type="button" class="btn btn-primary me-2 " [routerLink]="['admin/flats/tenants']"> Edit</button>
+                        <button type="button" class="btn btn-info me-2 " [routerLink]="['/admin/flats/', flat.id]"> See details</button>
                         <span class="badge bg-secondary me-2 " *ngIf="isFree"> Free</span>
                     </div>
                 </div>

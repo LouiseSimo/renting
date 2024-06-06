@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "flatName": "F1",
+        "flatName": "F1 without the api",
         "description": "this is the F1 flat description",
         "price": 900.00,
         "imageUrl":"../assets/img/hotel-room.jpg",
@@ -13,7 +13,8 @@
         "description": "this is the F2 flat description",
         "price": 800.00,
         "imageUrl":"../assets/img/hotel-room.jpg",
-        "isFree":true
+        "isFree":true,
+        "createdDate": "12/10/1999"
     },
     {
         "flatId": 3,
