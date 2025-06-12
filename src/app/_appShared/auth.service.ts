@@ -44,6 +44,8 @@ export class AuthService {
 
   logout() {
     this.isLoggedIn = false;
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("loggedName");
   }
 
   persistAuthData(isLoggedIn: boolean, loggedName: string) {
