@@ -34,7 +34,7 @@ import { FlatsComponent } from './flats.component';
         FlatListComponent,
         FlatDetailsComponent,
         FlatEditComponent,
-        //FlatRoutingModule,
+        FlatRoutingModule,
         
         
         

@@ -44,9 +44,9 @@
                     </p>
 
                     <div class="col">
-                        <!-- <button type="button" class="btn btn-primary me-2 " [routerLink]="['/admin/flats/', flat.id, '/edit']"> Edit</button> -->
-                        <button type="button" class="btn btn-primary me-2 " [routerLink]="['admin/flats/tenants']"> Edit</button>
-                        <button type="button" class="btn btn-info me-2 " [routerLink]="['/admin/flats/', flat.id]"> See details</button>
+                        <button type="button" class="btn btn-primary me-2 " [routerLink]="['/flats/', flat.id, 'edit']"> Edit</button>
+                        <button type="button" class="btn btn-info me-2 " [routerLink]="['/flats/', flat.id]"> See details</button>
+                        <!-- <button type="button" class="btn btn-info me-2 " (click)="onViewFlat()"> See details</button> -->
                         <span class="badge bg-secondary me-2 " *ngIf="isFree"> Free</span>
                     </div>
                 </div>

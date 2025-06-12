@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IFlat } from '../flat';
 import { FlatListService } from '../services/flat-list.service';
 import { BorderCardDirective } from '../../_appShared/directives/border-card.directive';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +24,9 @@ export class FlatListComponent implements OnInit {
 
   public errMsg !: string;
 
-  constructor ( private flatListService : FlatListService){}
+  constructor ( private flatListService : FlatListService,
+                private router:Router
+  ){}
 
 
 
@@ -68,6 +71,12 @@ export class FlatListComponent implements OnInit {
     this.isFree=!this.isFree;
     
   }
+
+  // onViewFlat(){
+  //   //this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`);
+  //   this.router.navigateByUrl(`admin/flats/0/edit`);
+  // }
+
 
 
 }

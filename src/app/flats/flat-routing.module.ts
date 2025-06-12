@@ -13,17 +13,19 @@ import { FlatsComponent } from './flats.component';
 
 
 const flatRoutes: Routes = [
-  // {
-  //   path: '', component: FlatsComponent,
-  //   children: [
-  //     //  Les  :id  spécifient que ce qui se trouvera après  flats/ correspondra à un paramètre qui s'appellera  id.
-  //     { path: '', component: FlatListComponent, outlet: 'flats' },
-  //     // {path: 'flats/:id', component: FlatDetailsComponent, canActivate :[FlatDetailGuard]},
-  //     // {path: 'flats/:id/edit', component: FlatEditComponent, canDeactivate:[ FlatEditGuard],canActivate :[authGuard]},
-  //     { path: 'flats/:id', component: FlatDetailsComponent, outlet: 'flats' },
-  //     { path: ':id/edit', component: FlatEditComponent, outlet: 'flats' }
-  //   ], 
-  // }
+  {
+    path: '', component: FlatsComponent,
+    children: [
+      //  Les  :id  spécifient que ce qui se trouvera après  flats/ correspondra à un paramètre qui s'appellera  id.
+      { path: '', component: FlatListComponent, outlet: 'flats' },
+      // {path: 'flats/:id', component: FlatDetailsComponent, canActivate :[FlatDetailGuard]},
+      // {path: 'flats/:id/edit', component: FlatEditComponent, canDeactivate:[ FlatEditGuard],canActivate :[authGuard]},
+      // { path: 'flats/:id', component: FlatDetailsComponent, outlet: 'flats' },
+      // { path: ':id/edit', component: FlatEditComponent, outlet: 'flats' }
+    ], 
+  },
+  { path: ':id', component: FlatDetailsComponent, outlet: 'flats' },
+      { path: ':id/edit', component: FlatEditComponent, outlet: 'flats' }
 ]
 
 
