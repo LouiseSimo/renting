@@ -40,8 +40,6 @@ const adminRoutes : Routes =[ // cette constante garde toutes les routes qui von
     
     {path: 'tenants', component: TenantListComponent, },
     {path: '**', redirectTo : ' ', pathMatch:'full'}, //ceci est la route avec l'espace ' '
-    // {path: 'flats/:id', component: FlatDetailsComponent, canActivate :[FlatDetailGuard]},
-    // {path: 'flats/:id/edit', component: FlatEditComponent, canDeactivate:[ FlatEditGuard],canActivate :[authGuard]},
 
   ],
  },
